@@ -15,10 +15,10 @@
     </header>
     <main>
         <section>
-            <h1>Login</h1>
-            <form action="" method="post">
+            <h1>Login</h1>            
+            <form action="src/php/register_guest.php" method="post">
                 <label>CPF</label>
-                <input type="text" name="login" id="login">
+                <input type="text" name="cpf_anfitrioes" id="cpf_anfitrioes">
                 <label>Código do evento</label>
                 <input type="text" name="code" id="code">
                 <button type="submit">Entrar</button>

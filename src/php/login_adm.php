@@ -16,6 +16,9 @@
     <main>
         <section>
             <h1>Login</h1>
+            <?php 
+                include ("connect.php");
+            ?>
             <form action="" method="post">
                 <label>CPF</label>
                 <input type="text" name="login" id="login">
