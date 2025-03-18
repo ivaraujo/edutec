@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+section{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 10px;   
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#lista_presentes{
+    display: inline-block;
+    width: 100%;
+}
+
+#lista_presentes table{
+    background-color: aqua;
+    width: 100%;
+}

@@ -2,14 +2,14 @@
     include ("connect.php");    
 
     if(isset($_POST['btn'])){
-        $usuario = $_POST['usuario'];
+        $usuario = $_POST['cpf'];
         $senha = $_POST['senha'];
 
-        if(empty($usuario) or empty($senha)){
-            echo("Login ou senha não está preenchido");
+        if(empty($usuario) && empty($senha)){
+            echo("Senha não está preenchido");
         }
         else{            
-            $busca = $mysqli->query("SELECT * FROM anfitrioes WHERE cpf_anfitrioes LIKE '$usuario' AND senha_anfitrioes LIKE '$senha'") or die("Falha na busca SQL ".$mysqli->error);
+            $busca = $mysqli->query("SELECT * FROM convidados WHERE cpf_convidados LIKE '$usuario' AND senha_convidados LIKE '$senha'") or die("Falha na busca SQL ".$mysqli->error);
             
             $qtd_resultados = $busca->num_rows;
             
@@ -18,9 +18,9 @@
                 if(!isset($_SESSION)){
                     session_start();
                 }
-                $_SESSION['id_adm'] = $dados_usuario['idanfitrioes'];
-                $_SESSION['nome_adm'] = $dados_usuario['nome_anfitrioes'];
-                header("Location: painel.php");
+                $_SESSION['id_user'] = $dados_usuario['idconvidados'];
+                $_SESSION['nome_user'] = $dados_usuario['nome_convidados'];
+                header("Location: store.php");
             }            
         }
     }
@@ -32,20 +32,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de eventos</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/login_adm.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="../../index.php">Home</a>
-        </nav>
-    </header>
+<body>    
     <main>
         <section>
             <h1>Login</h1>            
-            <form action="login_adm.php" method="post">
+            <form action="login.php" method="post">
                 <label>CPF</label>
-                <input type="text" name="usuario" id="usuario">
+                <input type="text" name="cpf" id="cpf">                
                 <label>Senha</label>
                 <input type="password" name="senha" id="senha">
                 <button type="submit" name="btn">Entrar</button>
