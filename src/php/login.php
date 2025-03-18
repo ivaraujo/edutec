@@ -3,13 +3,12 @@
 
     if(isset($_POST['btn'])){
         $usuario = $_POST['cpf'];
-        $senha = $_POST['senha'];
 
-        if(empty($usuario) && empty($senha)){
+        if(empty($usuario)){
             echo("Senha não está preenchido");
         }
         else{            
-            $busca = $mysqli->query("SELECT * FROM convidados WHERE cpf_convidados LIKE '$usuario' AND senha_convidados LIKE '$senha'") or die("Falha na busca SQL ".$mysqli->error);
+            $busca = $mysqli->query("SELECT * FROM convidados WHERE cpf_convidados LIKE '$usuario'") or die("Falha na busca SQL ".$mysqli->error);
             
             $qtd_resultados = $busca->num_rows;
             
@@ -30,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de eventos</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
@@ -40,9 +39,7 @@
             <h1>Login</h1>            
             <form action="login.php" method="post">
                 <label>CPF</label>
-                <input type="text" name="cpf" id="cpf">                
-                <label>Senha</label>
-                <input type="password" name="senha" id="senha">
+                <input type="text" name="cpf" id="cpf">
                 <button type="submit" name="btn">Entrar</button>
             </form>
         </section>

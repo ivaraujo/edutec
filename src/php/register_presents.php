@@ -23,10 +23,10 @@
                 $limite_presentes = $_POST['range_gift'];
                 $categorias_idcategorias = $_POST['category_gift'];
                 $imagem_presentes = $_POST['image_gift'];
-                $pagamentos_idpagamentos = $_POST['pay_gift'];
+                //$pagamentos_idpagamentos = $_POST['pay_gift'];
 
                 $mysqli->query("INSERT INTO presentes (nome_presentes,preco_presentes,limite_presentes,categorias_idcategorias,pagamentos_idpagamentos) 
-    VALUES ('$nome_presentes','$preco_presentes','$limite_presentes','$categorias_idcategorias','$pagamentos_idpagamentos')");
+    VALUES ('$nome_presentes','$preco_presentes','$limite_presentes','$categorias_idcategorias')");
                 if($mysqli->error){
                     echo("Erro: $mysqli->error");
                 }
@@ -53,15 +53,7 @@
             </select>
             <label>Imagem do presente</label>
             <input type="file" name="image_gift" id="image_gift">
-            <label>Tipo de pagamento</label>
-            <select name="pay_gift" id="pay_gift">
-                <option>Escolha...</option>
-                <?php
-                    $busca_pagamento = $mysqli->query("SELECT * FROM pagamentos");
-                    while($pagamentos = mysqli_fetch_array($busca_pagamento,MYSQLI_ASSOC)){
-                ?>            
-                <option value="<?php echo $pagamentos['idpagamentos']; ?>"><?php echo $pagamentos['nome_pagamentos']; ?></option>
-                <?php } ?>            
+                       
             </select>        
             <button type="submit">Cadastrar</button>
         </form>
