@@ -9,7 +9,7 @@ body{
 
 section{
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     padding: 20px;
     border: 2px solid gray;
     border-radius: 10px;   
@@ -17,18 +17,33 @@ section{
 
 #container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
 #lista_presentes{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-#lista_presentes table{
-    background-color: aqua;
+#lista_eventos{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
+
+table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+td{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
